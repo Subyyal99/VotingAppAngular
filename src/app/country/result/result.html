@@ -1,0 +1,115 @@
+<div class="main">
+  <div class="head">
+    <h1>All Results</h1>
+  </div>
+  <hr />
+  <div class="country">
+    <h2 class="heading">Country Result</h2>
+    <div
+      *ngIf="Object.keys(this.result.CountryWinner).length>0"
+      class="tableclass"
+    >
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Country Position</th>
+            <th>Votes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{this.result.CountryWinner.firstname}}</td>
+            <td>{{this.result.CountryWinner.lastname}}</td>
+            <td>{{this.result.CountryWinner.country_position}}</td>
+            <td>{{this.result.CountryWinner.vote}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr />
+
+    <div><h2>City Result</h2></div>
+    <div>
+      <h3>City A</h3>
+      <div
+        *ngIf="Object.keys(this.result.CityResult[0].cityA).length>0"
+        class="tableclass"
+      >
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>City Position</th>
+              <th>Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{this.result.CityResult[0].cityA.firstname}}</td>
+              <td>{{this.result.CityResult[0].cityA.lastname}}</td>
+              <td>{{this.result.CityResult[0].cityA.city_position}}</td>
+              <td>{{this.result.CityResult[0].cityA.vote}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <h3>City B</h3>
+      <div
+        *ngIf="Object.keys(this.result.CityResult[1].cityB).length>0"
+        class="tableclass"
+      >
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>City Position</th>
+              <th>Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{this.result.CityResult[1].cityB.firstname}}</td>
+              <td>{{this.result.CityResult[1].cityB.lastname}}</td>
+              <td>{{this.result.CityResult[1].cityB.city_position}}</td>
+              <td>{{this.result.CityResult[1].cityB.vote}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <hr />
+      <h3>City C</h3>
+      <div
+        *ngIf="Object.keys(this.result.CityResult[2].cityC).length>0"
+        class="tableclass"
+      >
+        <table>
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>City Position</th>
+              <th>Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{this.result.CityResult[2].cityC.firstname}}</td>
+              <td>{{this.result.CityResult[2].cityC.lastname}}</td>
+              <td>{{this.result.CityResult[2].cityC.city_position}}</td>
+              <td>{{this.result.CityResult[2].cityC.vote}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

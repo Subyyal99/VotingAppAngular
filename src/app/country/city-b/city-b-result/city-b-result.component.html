@@ -1,0 +1,42 @@
+<div class="main" *ngIf="this.cityB.close">
+  <h1>Voting hasn't been closed yet.</h1>
+</div>
+<div class="main" *ngIf="!this.cityB.close">
+  <h1 class="heading">City A Results</h1>
+  <div class="winner" *ngIf="!this.cityB.close">
+    <h2>
+      Winner :
+      {{
+        this.cityB.CityWinner.firstname +
+          " " +
+          this.cityB.CityWinner.lastname +
+          " | " +
+          this.cityB.CityWinner.city_position +
+          " | " +
+          this.cityB.CityWinner.vote
+      }}
+    </h2>
+  </div>
+  <div class="tablediv">
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>City</th>
+          <th>City Position</th>
+          <th>Total Votes</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let i of cityB.CityReuslt; let j = index">
+        <tr>
+          <td>{{ i.firstname }}</td>
+          <td>{{ i.lastname }}</td>
+          <td>{{ i.city }}</td>
+          <td>{{ i.city_position }}</td>
+          <td>{{ i.vote }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

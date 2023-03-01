@@ -1,0 +1,47 @@
+<!-- <p>country-c works!</p> -->
+<div class="main" *ngIf="!this.countryS.close">
+  <h1>Voting has been Closed. You may check the Results.</h1>
+  <div class="winner" *ngIf="!this.countryS.close">
+    <h2>
+      Winner :
+      {{
+        this.countryS.CountryWinner.firstname +
+          "  " +
+          this.countryS.CountryWinner.lastname +
+          " | " +
+          this.countryS.CountryWinner.country_position +
+          " | " +
+          this.countryS.CountryWinner.vote
+      }}
+    </h2>
+  </div>
+</div>
+<div class="main" *ngIf="this.countryS.close">
+  <h1 class="heading">Country Voting</h1>
+
+  <div class="tablediv">
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Country Position</th>
+          <th>Total Votes</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let i of countryS.CountryResult; let j = index">
+        <tr>
+          <td>{{ i.firstname }}</td>
+          <td>{{ i.lastname }}</td>
+          <td>{{ i.country_position }}</td>
+          <td>{{ i.vote }}</td>
+          <td *ngIf="this.countryS.close">
+            <button (click)="AddVote(i.id)">Vote</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="btn" (click)="closePolling()">Close</button>
+</div>

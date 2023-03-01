@@ -1,0 +1,96 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+/>
+<div class="tableclass">
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Country Position</th>
+        <th>City</th>
+        <th>City Position</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of this.data.Candidate">
+        <td>{{ i.firstname }}</td>
+        <td>{{ i.lastname }}</td>
+        <td>{{ i.country_position != null ? i.country_position : "N/A" }}</td>
+        <td>{{ i.city != null ? i.city : "N/A" }}</td>
+        <td>{{ i.city != null ? i.city_position : "N/A" }}</td>
+        <td><button class="dlt" (click)="DeleteId(i.id)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="formdiv">
+  <button (click)="CandidateAdd()">Add New Candidate</button>
+  <form
+    (ngSubmit)="SaveCandidate()"
+    class=""
+    id="add_candidate"
+    *ngIf="display"
+    [formGroup]="CandidateForm"
+  >
+    <div class="input-grp">
+      <label>First Name</label>
+      <input
+        type="text"
+        id="firstname"
+        placeholder="First name"
+        formControlName="first_name"
+      />
+    </div>
+    <div class="input-grp">
+      <label>Last Name</label>
+      <input
+        type="text"
+        id="lastname"
+        placeholder="Last Name"
+        formControlName="last_name"
+      />
+    </div>
+
+    <div class="input-grp">
+      <label>Country Position</label>
+      <select id="country_position" formControlName="country_position">
+        <option
+          *ngFor="let i of this.data.Positions.country; let j = index"
+          [value]="data.Positions.country[j].position_name"
+        >
+          Position : {{ data.Positions.country[j].position_name }}
+        </option>
+        <option>N/A</option>
+      </select>
+    </div>
+    <div class="input-grp">
+      <label>City</label>
+
+      <select id="city" formControlName="city_name">
+        <option
+          *ngFor="let i of this.data.Cities; let j = index"
+          [value]="data.Cities[j].city_name"
+        >
+          City : {{ data.Cities[j].city_name }}
+        </option>
+      </select>
+    </div>
+    <div class="input-grp">
+      <label>City Position</label>
+      <select id="v_id" formControlName="city_position">
+        <option
+          *ngFor="let i of this.data.Positions.city; let j = index"
+          [value]="data.Positions.city[j].position_name"
+        >
+          Position : {{ data.Positions.city[j].position_name }}
+        </option>
+        <option>N/A</option>
+      </select>
+    </div>
+    <button class="btn" type="submit">Save</button>
+    <!-- <span><button class="btn" (click)="cancel()">Cancel</button></span> -->
+  </form>
+</div>

@@ -1,0 +1,79 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+/>
+<div class="main">
+  <div class="country">
+    <h1 class="heading">Country Positions</h1>
+    <div class="tableclass">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Country Position</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of this.data.Positions.country; let j = index">
+            <td>{{ this.data.Positions.country[j].id }}</td>
+            <td>{{ this.data.Positions.country[j].position_name }}</td>
+            <td>{{ this.data.Positions.country[j].status }}</td>
+            <td><button class="dlt" (click)="DeleteId(this.data.Positions.country[j].id)">X</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn" (click)="AddCountryPosition()">Add</button>
+    </div>
+    <div *ngIf="display" class="addingposition">
+      <div>
+        <label>Position Name</label>
+        <input
+          type="text"
+          id="position"
+          placeholder="Position Name"
+          [(ngModel)]="position"
+        />
+      </div>
+      <button class="btn" (click)="Save('country')">Save</button>
+    </div>
+  </div>
+
+  <div class="country">
+    <h1 class="heading">City Positions</h1>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>City Position</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of this.data.Positions.city; let j = index">
+            <td>{{ this.data.Positions.city[j].id }}</td>
+            <td>{{ this.data.Positions.city[j].position_name }}</td>
+            <td>{{ this.data.Positions.city[j].status }}</td>
+            <td><button class="dlt" (click)="Deletecity(this.data.Positions.city[j].id)">X</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn" (click)="AddCountryPosition2()">Add</button>
+    </div>
+    <div *ngIf="display2" class="addingposition">
+      <div>
+        <label>Position Name</label>
+        <input
+          type="text"
+          id="position"
+          placeholder="Position Name"
+          [(ngModel)]="position2"
+        />
+      </div>
+      <button class="btn" (click)="Save('city')">Save</button>
+    </div>
+  </div>
+</div>
